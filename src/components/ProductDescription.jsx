@@ -30,10 +30,16 @@ export default function ProductDescription({ handleAddToCart }) {
 
   return (
     <div className="flex flex-col gap-4 max-w-md">
+      {/* Brand */}
       <p className="uppercase text-slate-500 tracking-widest">{shoes.brand}</p>
+
+      {/* Product Name */}
       <h2 className="font-bold text-5xl">{shoes.name}</h2>
+
+      {/* Description */}
       <p className="text-gray-700">{shoes.description}</p>
 
+      {/* Price */}
       {shoes.discount ? (
         <div className="flex items-center gap-3">
           <p className="text-black font-bold text-2xl">
@@ -47,26 +53,30 @@ export default function ProductDescription({ handleAddToCart }) {
         <p className="text-2xl">{rupiahFormat(shoes.price)}</p>
       )}
 
-      {/* Quantity control and Add to Cart */}
+      {/* Quantity + Add to cart */}
       <div className="flex items-center gap-4 mt-4">
-        <div className="flex items-center bg-gray-100 px-4 py-2 rounded-lg">
+        {/* Quantity control */}
+        <div className="flex items-center bg-white rounded-xl px-2 py-1">
           <button
-            className="text-lg px-2"
+            className="bg-gray-200 text-orange-500 font-bold text-xl w-10 h-10 rounded-lg transition"
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
           >
-            -
+            −
           </button>
-          <span className="px-2">{quantity}</span>
+          <span className="w-10 text-center font-semibold text-lg">
+            {quantity}
+          </span>
           <button
-            className="text-lg px-2"
+            className="bg-gray-200 text-orange-500 font-bold text-xl w-10 h-10 rounded-lg transition"
             onClick={() => setQuantity(quantity + 1)}
           >
             +
           </button>
         </div>
 
+        {/* Add to cart */}
         <button
-          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg"
+          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-semibold shadow transition"
           onClick={handleSubmit}
         >
           Add to cart
